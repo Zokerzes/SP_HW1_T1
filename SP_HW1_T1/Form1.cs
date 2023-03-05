@@ -16,23 +16,21 @@ namespace SP_HW1_T1
         public Form1()
         {
             InitializeComponent();
-            myProcess.StartInfo = new System.Diagnostics.ProcessStartInfo("notepad.exe");
+            myProcess.StartInfo = new ProcessStartInfo("notepad.exe");
         }
-
         public void BtnStart_Click(object sender, EventArgs e)
         {
             Service.StartMyProcess(myProcess);
             btnStarnWait.Enabled = false;
             btnStop.Enabled = true;
         }
-
+            
         public void BtnStarnWait_Click(object sender, EventArgs e)
         {
             btnStart.Enabled = false;
             Service.StartMyProcessAndWait(myProcess);
             Close();
         }
-
         public void BtnStop_Click(object sender, EventArgs e)
         {
             myProcess.CloseMainWindow();
